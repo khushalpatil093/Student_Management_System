@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student_Management_CRUD</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <section class="Page-Title">Student Management CRUD</section>
+    <section class="student-form">
+        <form autocomplete="off" id="formId" onsubmit="onFormSubmit()">
+            <div>
+                <input type="text" placeholder="Name" id="name">
+                <input type="text" placeholder="Email" id="email">
+                <input type="text" placeholder="GPA" id="gpa">
+            </div>
+            <div>
+                <input type="text" placeholder="Age" id="age">
+                <input type="text" placeholder="Degree" id="degree">
+            </div>
+            <div>
+                <button type="submit">Add Student</button>
+            </div>
+        </form>
+    </section>
+    <section class="search-Box">
+        <input type="text" placeholder="Search By Name, email or degree" id="searchInput" oninput="searchRecords()">
+    </section>
+    <section class="student-table">
+        <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>GPA</th>
+                    <th>Degree</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </section>
+
+    <script src="./script.js"></script>
+</body>
+</html>
