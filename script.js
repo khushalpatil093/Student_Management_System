@@ -9,6 +9,10 @@ function onFormSubmit(e) {
         updateRecord(formData);
     }
     resetForm();
+
+    // Reset the button text and id to "Add Student"
+    document.getElementById("submitButton").innerText = "Add Student";
+    document.getElementById("submitButton").setAttribute("onclick", "onFormSubmit(event)");
 }
 
 function readFormData() {
@@ -45,6 +49,19 @@ function onEdit(td) {
     document.getElementById("gpa").value = selectedRow.cells[2].innerHTML;
     document.getElementById("age").value = selectedRow.cells[3].innerHTML;
     document.getElementById("degree").value = selectedRow.cells[4].innerHTML;
+
+    document.getElementById("submitButton").innerText = "Edit";
+    document.getElementById("submitButton").setAttribute("onclick", "onFormSubmitEdit(event)");
+}
+
+function onFormSubmitEdit(event) {
+    event.preventDefault();
+    let formData = readFormData();
+    updateRecord(formData);
+    resetForm();
+    // Reset the button text and id to "Add Student"
+    document.getElementById("submitButton").innerText = "Add Student";
+    document.getElementById("submitButton").setAttribute("onclick", "onFormSubmit(event)");
 }
 
 function updateRecord(formData) {
@@ -78,19 +95,19 @@ function searchRecords() {
     let table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
     let rows = table.getElementsByTagName("tr");
 
-    for(let i=0; i<rows.length; ++i) {
+    for (let i = 0; i < rows.length; ++i) {
         let cells = rows[i].getElementsByTagName('td');
         let found = false;
 
-        for(let j=0; j<cells.length; ++i) {
+        for (let j = 0; j < cells.length; ++j) {  // Corrected index in this line
             let cellValue = cells[j].innerHTML.toLowerCase();
-            
-            if(cellValue.includes(search)) {
+
+            if (cellValue.includes(search)) {
                 found = true;
                 break;
             }
         }
-        if(found) {
+        if (found) {
             rows[i].style.display = "";
         } else {
             rows[i].style.display = "none";
